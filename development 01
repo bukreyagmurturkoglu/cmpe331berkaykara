@@ -1,0 +1,16 @@
+import pandas as pd
+import requests
+import re
+from bs4 import BeautifulSoup
+
+URL = 'https://www.nytimes.com/section/science'
+page = requests.get(URL)
+
+
+soup = BeautifulSoup(page.content, 'html.parser')
+    
+headerlist = soup.find_all(re.compile('^h[1-6]'))
+print("Headers : ")
+for header in headerlist:
+    print(header.text)
+    
