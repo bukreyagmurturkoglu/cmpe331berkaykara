@@ -13,4 +13,8 @@ headerlist = soup.find_all(re.compile('^h[1-6]'))
 print("Headers : ")
 for header in headerlist:
     print(header.text)
+spanlist = soup.find_all(re.compile('span'))
+for i in soup.find_all('time'):
+        if i.has_attr('datetime'):
+            print(i['datetime'])
     
